@@ -3,6 +3,10 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Badge } from "../ui/badge";
+import { Github, Linkedin, Mail, MapPin, Phone, X } from "lucide-react";
+import { FaDiscord } from "react-icons/fa";
+
+import { FloatingDock } from "../ui/floating-dock";
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -23,7 +27,7 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className="flex flex-col items-center justify-center max-w-7xl sm:w-3/4 lg:w-full mx-auto px-6 py-20 sm:px-10 min-h-screen"
+            className="flex flex-col items-center justify-center max-w-7xl sm:w-3/4 lg:w-full mx-auto px-6 pt-20 sm:px-10 min-h-screen"
         >
             <Badge>Contact</Badge>
             {/* Title */}
@@ -38,7 +42,6 @@ export default function Contact() {
             </motion.h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full">
-
                 {/* Form */}
                 <motion.form
                     initial={{ opacity: 0, y: 60 }}
@@ -112,8 +115,7 @@ export default function Contact() {
                         Send Message
                     </motion.button>
                 </motion.form>
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                     {/* Email Info */}
                     <motion.div
                         initial={{ opacity: 0, y: 60 }}
@@ -122,13 +124,17 @@ export default function Contact() {
                         viewport={{ once: true }}
                         className="mt-10 lg:mt-0 flex items-center"
                     >
-                        <div className="w-full">
-                            <h3 className="text-lg font-semibold mb-2">Email</h3>
-                            <p className="text-secondary-foreground">
-                                For business inquiries, collaborations, or project discussions, feel free to reach out.
-                            </p>
-                            <p className="mt-1">htetkooo2532@gmail.com</p>
+                        <div className="flex items-start space-x-3">
+                            <Mail />
+                            <div className="w-full">
+                                <h3 className="text-lg font-semibold mb-2">Email</h3>
+                                <p className="text-secondary-foreground">
+                                    For business inquiries, collaborations, or project discussions, feel free to reach out.
+                                </p>
+                                <p className="mt-1">htetkooo2532@gmail.com</p>
+                            </div>
                         </div>
+
                     </motion.div>
 
                     {/* Phone Info */}
@@ -139,12 +145,15 @@ export default function Contact() {
                         viewport={{ once: true }}
                         className="mt-10 lg:mt-0 flex items-center"
                     >
-                        <div className="w-full">
-                            <h3 className="text-lg font-semibold mb-2">Phone</h3>
-                            <p className="text-secondary-foreground">
-                                Available for urgent calls, client meetings, or quick follow-ups during business hours.
-                            </p>
-                            <p className="mt-1">+66 92 8548 602</p>
+                        <div className="flex items-start space-x-3">
+                            <Phone />
+                            <div className="w-full">
+                                <h3 className="text-lg font-semibold mb-2">Phone</h3>
+                                <p className="text-secondary-foreground">
+                                    Available for urgent calls, client meetings, or quick follow-ups during business hours.
+                                </p>
+                                <p className="mt-1">+66 92 8548 602</p>
+                            </div>
                         </div>
                     </motion.div>
 
@@ -156,17 +165,29 @@ export default function Contact() {
                         viewport={{ once: true }}
                         className="mt-8 lg:mt-0 flex items-center"
                     >
-                        <div className="w-full">
-                            <h3 className="text-lg font-semibold mb-2">Location</h3>
-                            <p className="text-secondary-foreground">
-                                Currently based in Bangkok, Thailand. Open to remote work and project collaborations.
-                            </p>
-                            <p className="mt-1">Bangkok, Thailand</p>
+                        <div className="flex items-start space-x-3">
+                            <MapPin />
+                            <div className="w-full">
+                                <h3 className="text-lg font-semibold mb-2">Location</h3>
+                                <p className="text-secondary-foreground">
+                                    Currently based in Bangkok, Thailand. Open to remote work and project collaborations.
+                                </p>
+                                <p className="mt-1">Bangkok, Thailand</p>
+                            </div>
                         </div>
                     </motion.div>
                 </div>
+            </div>
 
-
+            {/* Social Links */}
+            <div className="mt-20">
+            <FloatingDock items={[
+                { title: "Github", icon: <Github className="h-5 w-5" />, href: "https://github.com/yourusername" },
+                { title: "X", icon: <X className="h-5 w-5" />, href: "https://github.com/yourusername" },
+                { title: "Discord", icon: <FaDiscord className="h-5 w-5" />, href: "https://github.com/yourusername" },
+                { title: "Linkedin", icon: <Linkedin className="h-5 w-5" />, href: "https://linkedin.com/in/yourusername" },
+                { title: "Email", icon: <Mail className="h-5 w-5" />, href: "mailto:your.email@example.com" },
+                ]} />
             </div>
         </section>
     );
