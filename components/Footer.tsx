@@ -13,12 +13,12 @@ export default function Footer() {
                 className="py-10 px-6 flex flex-col md:flex-row items-center justify-between"
             >
                 {/* Name / Branding */}
-                <p className="text-gray-400 text-sm">
+                <p className="text-secondary-foreground text-sm">
                     © {new Date().getFullYear()} Htet Ko Oo. All Rights Reserved.
                 </p>
 
                 {/* Footer text */}
-                <p className="text-gray-500 text-sm">
+                <p className="text-secondary-foreground text-sm">
                     Designed and built with Next.js, TailwindCSS, and Framer Motion.
                 </p>
             </motion.div>

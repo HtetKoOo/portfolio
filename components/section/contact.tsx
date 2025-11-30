@@ -1,11 +1,12 @@
 "use client";
 
+import { links } from "@/config/site"
+
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Badge } from "../ui/badge";
-import { Github, Linkedin, Mail, MapPin, Phone, X } from "lucide-react";
-import { FaDiscord } from "react-icons/fa";
-
+import { Mail, MapPin, Phone } from "lucide-react";
+import { FaDiscord, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FloatingDock } from "../ui/floating-dock";
 
 export default function Contact() {
@@ -27,7 +28,7 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className="flex flex-col items-center justify-center max-w-7xl sm:w-3/4 lg:w-full mx-auto px-6 pt-20 sm:px-10 min-h-screen"
+            className="flex flex-col items-center justify-center max-w-7xl sm:w-3/4 lg:w-full mx-auto px-6 pt-20 sm:px-10"
         >
             <Badge>Contact</Badge>
             {/* Title */}
@@ -115,7 +116,7 @@ export default function Contact() {
                         Send Message
                     </motion.button>
                 </motion.form>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-start">
                     {/* Email Info */}
                     <motion.div
                         initial={{ opacity: 0, y: 60 }}
@@ -180,15 +181,13 @@ export default function Contact() {
             </div>
 
             {/* Social Links */}
-            <div className="mt-20">
-            <FloatingDock items={[
-                { title: "Github", icon: <Github className="h-5 w-5" />, href: "https://github.com/yourusername" },
-                { title: "X", icon: <X className="h-5 w-5" />, href: "https://github.com/yourusername" },
-                { title: "Discord", icon: <FaDiscord className="h-5 w-5" />, href: "https://github.com/yourusername" },
-                { title: "Linkedin", icon: <Linkedin className="h-5 w-5" />, href: "https://linkedin.com/in/yourusername" },
-                { title: "Email", icon: <Mail className="h-5 w-5" />, href: "mailto:your.email@example.com" },
+                <FloatingDock desktopClassName="mt-20 mb-6" items={[
+                { title: "Github", icon: <FaGithub className="h-5 w-5" />, href: links.github },
+                { title: "Twitter", icon: <FaTwitter className="h-5 w-5" />, href: links.twitter },
+                { title: "Discord", icon: <FaDiscord className="h-5 w-5" />, href: links.discord },
+                { title: "Linkedin", icon: <FaLinkedin className="h-5 w-5" />, href: links.linkedin },
+                { title: "Email", icon: <Mail className="h-5 w-5" />, href: links.email },
                 ]} />
-            </div>
         </section>
     );
 }
