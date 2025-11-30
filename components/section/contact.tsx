@@ -116,7 +116,7 @@ export default function Contact() {
                         Send Message
                     </motion.button>
                 </motion.form>
-                <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-start">
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 items-start">
                     {/* Email Info */}
                     <motion.div
                         initial={{ opacity: 0, y: 60 }}

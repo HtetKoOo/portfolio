@@ -5,10 +5,10 @@ import Image from "next/image";
 
 export default function Experience() {
     return (
-        <section id="experience" className="flex flex-col items-center justify-center max-w-6xl mx-auto px-2 py-20 sm:px-6 min-h-screen">
+        <section id="experience" className="flex flex-col items-center justify-center max-w-6xl mx-auto px-6 py-20 sm:px-10 min-h-screen">
             <Badge>Experience</Badge>
             
-            <div className="w-full mt-10 grid lg:grid-cols-4 grid-cols-1 gap-10">
+            <div className="md:w-3/4 lg:w-full mt-10 grid lg:grid-cols-4 grid-cols-1 gap-4 lg:gap-10">
                 {workExperience.map((card) => (
                     <Button
                         key={card.id}

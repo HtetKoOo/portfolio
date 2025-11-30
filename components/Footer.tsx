@@ -18,7 +18,7 @@ export default function Footer() {
                 </p>
 
                 {/* Footer text */}
-                <p className="text-secondary-foreground text-sm">
+                <p className="text-secondary-foreground text-sm text-center">
                     Designed and built with Next.js, TailwindCSS, and Framer Motion.
                 </p>
             </motion.div>
