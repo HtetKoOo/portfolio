@@ -5,8 +5,8 @@ import Image from "next/image";
 
 export default function Experience() {
     return (
-        <section id="experience" className="flex flex-col items-center justify-center max-w-6xl mx-auto px-6 py-20 sm:px-10 min-h-screen">
-            <Badge>Experience</Badge>
+        <section id="experience" className="flex flex-col items-center justify-center max-w-6xl mx-auto px-4 py-20 sm:px-10 min-h-screen">
+            <Badge variant="secondary">Experience</Badge>
             
             <div className="md:w-3/4 lg:w-full mt-10 grid lg:grid-cols-4 grid-cols-1 gap-4 lg:gap-10">
                 {workExperience.map((card) => (
