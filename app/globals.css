@@ -124,7 +124,7 @@
 @theme inline {
   --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
 }
- 
+
 @keyframes spotlight {
   0% {
     opacity: 0;
@@ -134,4 +134,25 @@
     opacity: 1;
     transform: translate(-50%, -40%) scale(1);
   }
+}
+
+/* Utility to hide scrollbars (cross-browser) */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* Hide scrollbars globally (site-wide). Applies to html/body across browsers. */
+html,
+body {
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }

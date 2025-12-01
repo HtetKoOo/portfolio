@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Badge } from "../ui/badge";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { FaDiscord, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaDiscord, FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FloatingDock } from "../ui/floating-dock";
 
 export default function Contact() {
@@ -183,6 +183,7 @@ export default function Contact() {
             {/* Social Links */}
                 <FloatingDock desktopClassName="mt-20 mb-6" mobileClassName="mt-10 mb-2" items={[
                 { title: "Github", icon: <FaGithub className="h-5 w-5" />, href: links.github },
+                { title: "Facebook", icon: <FaFacebook className="h-5 w-5" />, href: links.facebook },
                 { title: "Twitter", icon: <FaTwitter className="h-5 w-5" />, href: links.twitter },
                 { title: "Discord", icon: <FaDiscord className="h-5 w-5" />, href: links.discord },
                 { title: "Linkedin", icon: <FaLinkedin className="h-5 w-5" />, href: links.linkedin },
