@@ -28,9 +28,9 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className="flex flex-col items-center justify-center max-w-7xl sm:w-3/4 lg:w-full mx-auto px-6 pt-20 sm:px-10"
+            className="flex flex-col items-center justify-center max-w-7xl sm:w-3/4 lg:w-full mx-auto px-4 pt-20 sm:px-10"
         >
-            <Badge>Contact</Badge>
+            <Badge variant="secondary">Contact</Badge>
             {/* Title */}
             <motion.h2
                 initial={{ opacity: 0, y: 40 }}
@@ -181,7 +181,7 @@ export default function Contact() {
             </div>
 
             {/* Social Links */}
-                <FloatingDock desktopClassName="mt-20 mb-6" items={[
+                <FloatingDock desktopClassName="mt-20 mb-6" mobileClassName="mt-10 mb-2" items={[
                 { title: "Github", icon: <FaGithub className="h-5 w-5" />, href: links.github },
                 { title: "Twitter", icon: <FaTwitter className="h-5 w-5" />, href: links.twitter },
                 { title: "Discord", icon: <FaDiscord className="h-5 w-5" />, href: links.discord },

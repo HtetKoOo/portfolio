@@ -37,7 +37,7 @@ const FloatingDockMobile = ({
 }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className={cn("relative hidden", className)}>
+    <div className={cn("relative flex items-center justify-center sm:hidden", className)}>
       <AnimatePresence>
         {open && (
           <motion.div
@@ -67,7 +67,7 @@ const FloatingDockMobile = ({
                   target="__blank"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 dark:bg-neutral-900"
                 >
-                  <div className="h-4 w-4">{item.icon}</div>
+                  <div className="flex items-center justify-center h-5 w-5">{item.icon}</div>
                 </a>
               </motion.div>
             ))}
@@ -97,7 +97,7 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto h-16 items-end gap-4 rounded-full bg-gray-50 px-4 pb-3 flex dark:bg-neutral-900",
+        "mx-auto h-16 hidden sm:flex items-center gap-4 rounded-full bg-gray-50 px-4 dark:bg-neutral-900",
         className,
       )}
     >

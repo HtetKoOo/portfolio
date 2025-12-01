@@ -3,13 +3,13 @@ import { Spotlight } from "../ui/spotlight";
 import { Badge } from "../ui/badge";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
 import { GridBackground } from "../ui/grid-background";
-import { FolderOpen } from "lucide-react";
 import MagicButton from "../MagicButton";
 import { navItems } from "@/config/site";
+import { FaArrowDown } from "react-icons/fa";
 
 export default function Hero() {
     return (
-        <section id="home" className="relative flex flex-col items-center justify-center min-h-screen gap-10 pt-20" >
+        <section id="home" className="relative flex flex-col items-center justify-center min-h-screen px-4 sm:px-10 gap-10 pt-20" >
             {/* 🔥 Animated Background Layer */}
 
             <div className="absolute inset-0 pointer-events-none">
@@ -29,7 +29,7 @@ export default function Hero() {
             <GridBackground />
             {/* 🧾 Content Layer */}
             <div className="relative z-10 flex flex-col items-center gap-4 text-center max-w-3xl">
-                <Badge className="px-6 py-2">FullStack Developer</Badge>
+                <Badge className="px-6 py-2" variant="secondary">FullStack Developer</Badge>
                 <TextGenerateEffect
                     words="Build beautiful, responsive and high-performance websites."
                     className="text-center text-[40px] md:text-6xl "
@@ -44,7 +44,7 @@ export default function Hero() {
             <Link href={navItems[3].link}>
                 <MagicButton
                         title="Showcase"
-                        icon={<FolderOpen className="w-5 h-5" />}
+                        icon={<FaArrowDown className="w-5 h-5" />}
                         position="left"
                 />
                 </Link>
