@@ -35,7 +35,7 @@ export default function Contact() {
             <motion.h2
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.7 }}
                 viewport={{ once: true }}
                 className="text-4xl font-bold my-10 text-center"
             >
@@ -44,18 +44,16 @@ export default function Contact() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full">
                 {/* Form */}
-                <motion.form
-                    initial={{ opacity: 0, y: 60 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.1 }}
-                    viewport={{ once: true }}
-                    onSubmit={handleSubmit}
-                    className="w-full"
+                <form onSubmit={handleSubmit} className="w-full"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
                         {/* Name */}
-                        <div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 60 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.2 }}
+                            viewport={{ once: true }}>
                             <label className="block font-semibold mb-2">Full Name *</label>
                             <input
                                 name="name"
@@ -65,10 +63,14 @@ export default function Contact() {
                                 className="w-full px-4 py-2 bg-background border border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500"
                                 placeholder="Your Full Name"
                             />
-                        </div>
+                        </motion.div>
 
                         {/* Email */}
-                        <div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 60 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.2 }}
+                            viewport={{ once: true }}>
                             <label className="block font-semibold mb-2">Email Address *</label>
                             <input
                                 name="email"
@@ -79,21 +81,31 @@ export default function Contact() {
                                 className="w-full px-4 py-2 bg-background border border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500"
                                 placeholder="you@example.com"
                             />
-                        </div>
+                        </motion.div>
                     </div>
 
                     {/* Subject */}
-                    <div className="mt-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 60 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        viewport={{ once: true }}
+                        className="mt-4">
                         <label className="block font-semibold mb-2">Subject *</label>
                         <input
                             name="subject"
                             className="w-full px-4 py-2 bg-background border border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500"
                             placeholder="Subject"
                         />
-                    </div>
+                    </motion.div>
 
                     {/* Message */}
-                    <div className="mt-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 60 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.9, delay: 0.6 }}
+                        viewport={{ once: true }}
+                        className="mt-4">
                         <label className="block font-semibold mb-2">Message *</label>
                         <textarea
                             name="message"
@@ -104,18 +116,20 @@ export default function Contact() {
                             className="w-full px-4 py-3 bg-background border border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 resize-none"
                             placeholder="Write your message..."
                         />
-                    </div>
+                    </motion.div>
 
                     {/* Submit */}
                     <motion.button
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
+                        initial={{ opacity: 0, y: 60 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.8 }}
+                        viewport={{ once: true }}
                         type="submit"
-                        className="mt-8 w-full md:w-auto px-8 py-3 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg shadow-lg hover:opacity-90 transition-all"
+                        className="mt-4 w-full md:w-auto px-8 py-3 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg"
                     >
                         Send Message
                     </motion.button>
-                </motion.form>
+                </form>
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 items-start">
                     {/* Email Info */}
                     <motion.div
@@ -142,7 +156,7 @@ export default function Contact() {
                     <motion.div
                         initial={{ opacity: 0, y: 60 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.5 }}
+                        transition={{ duration: 0.8, delay: 0.5 }}
                         viewport={{ once: true }}
                         className="mt-10 lg:mt-0 flex items-center"
                     >
@@ -162,7 +176,7 @@ export default function Contact() {
                     <motion.div
                         initial={{ opacity: 0, y: 60 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.7 }}
+                        transition={{ duration: 0.9, delay: 0.7 }}
                         viewport={{ once: true }}
                         className="mt-8 lg:mt-0 flex items-center"
                     >
@@ -181,14 +195,21 @@ export default function Contact() {
             </div>
 
             {/* Social Links */}
+            <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, delay: 0.5 }}
+                viewport={{ once: true }}
+            >
                 <FloatingDock desktopClassName="mt-20 mb-6" mobileClassName="mt-10 mb-2" items={[
-                { title: "Github", icon: <FaGithub className="h-5 w-5" />, href: links.github },
-                { title: "Facebook", icon: <FaFacebook className="h-5 w-5" />, href: links.facebook },
-                { title: "Twitter", icon: <FaTwitter className="h-5 w-5" />, href: links.twitter },
-                { title: "Discord", icon: <FaDiscord className="h-5 w-5" />, href: links.discord },
-                { title: "Linkedin", icon: <FaLinkedin className="h-5 w-5" />, href: links.linkedin },
-                { title: "Email", icon: <Mail className="h-5 w-5" />, href: links.email },
+                    { title: "Github", icon: <FaGithub className="h-5 w-5" />, href: links.github },
+                    { title: "Facebook", icon: <FaFacebook className="h-5 w-5" />, href: links.facebook },
+                    { title: "Twitter", icon: <FaTwitter className="h-5 w-5" />, href: links.twitter },
+                    { title: "Discord", icon: <FaDiscord className="h-5 w-5" />, href: links.discord },
+                    { title: "Linkedin", icon: <FaLinkedin className="h-5 w-5" />, href: links.linkedin },
+                    { title: "Email", icon: <Mail className="h-5 w-5" />, href: links.email },
                 ]} />
+            </motion.div>
         </section>
     );
 }

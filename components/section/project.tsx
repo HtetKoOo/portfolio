@@ -16,14 +16,15 @@ export default function Project() {
                 {projects.map((project, index) => {
                     const isEven = index % 2 === 0;
                     const group = Math.floor(index / 2);   // every two items share same group
-                    const delay = 0.2 + group * 0.5;       // delay increases per group
+                    const delay = 0.2 + group * 0.2;       // delay increases per group
+                    const duration = 0.8 + index * 0.1;      // duration increases per group
 
                     return (
                         <motion.div
                             key={project.id}
                             initial={{ opacity: 0, x: isEven ? -60 : 60 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1, delay: delay }}
+                            transition={{ duration: duration, delay: delay }}
                             viewport={{ once: true }}
                             className="flex h-full"
                         >
