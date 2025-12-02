@@ -37,7 +37,7 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="text-4xl font-bold text-white my-10 text-center"
+                className="text-4xl font-bold my-10 text-center"
             >
                 Get In <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-pink-600">Touch</span>
             </motion.h2>
