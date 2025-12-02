@@ -15,7 +15,7 @@ export default function Experience() {
                     <motion.div
                         initial={{ opacity: 0, y: 60 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: index * 0.3 }}
+                        transition={{ duration: 1.2+index*0.1, delay: index * 0.1 }}
                         viewport={{ once: true }}
                         key={card.id}
                         className="flex h-full">
@@ -41,7 +41,7 @@ export default function Experience() {
                                 <motion.div
                                     initial={{ opacity: 0, x: -60 }}
                                     whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 1, delay: index * 0.5 }}
+                                    transition={{ duration: 1.2 + index * 0.2, delay: index * 0.2 }}
                                     viewport={{ once: true }}
                                     className="relative w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 shrink-0">
                                     <Image
@@ -57,7 +57,7 @@ export default function Experience() {
                                     <motion.h1
                                         initial={{ opacity: 0, y: -60 }}
                                         whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 1, delay: index * 0.5 }}
+                                        transition={{ duration: 1.4 + index * 0.2, delay: index * 0.3 }}
                                         viewport={{ once: true }}
                                         className="text-start text-xl md:text-2xl font-bold">
                                         {card.title}
@@ -65,7 +65,7 @@ export default function Experience() {
                                     <motion.p
                                         initial={{ opacity: 0, y: 60 }}
                                         whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 1, delay: index * 0.7 }}
+                                        transition={{ duration: 1.5 + index * 0.2, delay: index * 0.4 }}
                                         viewport={{ once: true }}
                                         className="text-start mt-3 font-semibold">
                                         {card.desc}

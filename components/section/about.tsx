@@ -22,7 +22,7 @@ export default function About() {
                 <motion.div
                     initial={{ opacity: 0, x: -100 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
+                    transition={{ duration: 0.7, delay: 0.3 }}
                     viewport={{ once: true }}
                     className="flex w-full lg:w-1/3 justify-center">
                     <Image
@@ -38,14 +38,22 @@ export default function About() {
                 <div className="flex flex-col w-full md:w-2/3 gap-4">
                     <div className="text-center lg:text-left"><Badge variant="secondary">About Me</Badge></div>
 
-                    <TextGenerateEffect
-                        words="React, Next.js & Laravel Enthusiast"
-                        className="text-center lg:text-left text-3xl md:text-4xl font-semibold"
-                    />
+                    <motion.div
+                        initial={{ opacity: 0, y: 60 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.5 }}
+                        viewport={{ once: true }}
+                    >
+                        <TextGenerateEffect
+                            words="React, Next.js & Laravel Enthusiast"
+                            className="text-center lg:text-left text-3xl md:text-4xl font-semibold"
+                        />
+                    </motion.div>
+
                     <motion.p
-                        initial={{ opacity: 0, x: 100 }}
+                        initial={{ opacity: 0, x: 60 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1, delay: 0.5 }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
                         viewport={{ once: true }}
                         className="text-default-600 leading-relaxed text-base md:text-lg"
                     >
@@ -55,9 +63,9 @@ export default function About() {
                     </motion.p>
 
                     <motion.p
-                        initial={{ opacity: 0, x: 100 }}
+                        initial={{ opacity: 0, x: 60 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1, delay: 1 }}
+                        transition={{ duration: 0.9, delay: 0.8 }}
                         viewport={{ once: true }}
                         className="text-default-600 leading-relaxed text-base md:text-lg"
                     >
@@ -69,7 +77,7 @@ export default function About() {
                     <motion.p
                         initial={{ opacity: 0, x: 60 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1, delay: 1.5 }}
+                        transition={{ duration: 1, delay: 1 }}
                         viewport={{ once: true }}
                         className="text-default-600 leading-relaxed text-base md:text-lg"
                     >
@@ -79,7 +87,7 @@ export default function About() {
                     <motion.div
                         initial={{ opacity: 0, y: 60 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 1.5 }}
+                        transition={{ duration: 1.2, delay: 1 }}
                         viewport={{ once: true }}
                         className="flex mt-4 items-center md:justify-between lg:justify-start gap-3">
                         {/* Action: download */}
