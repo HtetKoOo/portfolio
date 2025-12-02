@@ -13,6 +13,7 @@ export default function Contact() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
+        subject: "",
         message: "",
     });
 
@@ -20,9 +21,16 @@ export default function Contact() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
-        alert("Thank you! I'll get back to you soon.");
+
+        await fetch("/api/send", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        });
     };
 
     return (
@@ -94,6 +102,9 @@ export default function Contact() {
                         <label className="block font-semibold mb-2">Subject *</label>
                         <input
                             name="subject"
+                            value={formData.subject}
+                            onChange={handleChange}
+                            required
                             className="w-full px-4 py-2 bg-background border border-slate-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500"
                             placeholder="Subject"
                         />
