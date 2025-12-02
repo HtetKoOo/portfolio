@@ -30,6 +30,7 @@ export const navItems = [
 
 export const links = {
   github: "https://github.com/htetkooo",
+  facebook: "https://www.facebook.com/htetko.oo.5074644",
   twitter: "https://x.com/HtetKoOo9",
   linkedin: "https://www.linkedin.com/in/htet-ko-oo-602913315/",
   discord: "https://discord.gg/9b6yyZKmH4",
