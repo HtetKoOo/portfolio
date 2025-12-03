@@ -20,6 +20,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Htet Ko Oo's Portfolio",
   description: "Modern & Minimalist",
+  icons: {
+    icon: "/Portfolio_logo.png",  // path is relative to `public`
+  },
 };
 
 export default function RootLayout({
