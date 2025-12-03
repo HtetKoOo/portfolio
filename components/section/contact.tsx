@@ -1,15 +1,16 @@
 "use client";
 
 import { links } from "@/config/site"
-
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Badge } from "../ui/badge";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { FaDiscord, FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FloatingDock } from "../ui/floating-dock";
+import { toast } from "sonner";
 
 export default function Contact() {
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -23,14 +24,33 @@ export default function Contact() {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
+        setLoading(true);
 
-        await fetch("/api/send", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        });
+        try {
+            const res = await fetch("/api/send", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (!res.ok) throw new Error("Failed to send");
+
+            toast.success("Message sent successfully!");
+
+            // Reset the form after success
+            setFormData({
+                name: "",
+                email: "",
+                subject: "",
+                message: "",
+            });
+        } catch (error) {
+            toast.error("Failed to send message. Try again.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -136,10 +156,16 @@ export default function Contact() {
                         transition={{ duration: 1, delay: 0.8 }}
                         viewport={{ once: true }}
                         type="submit"
-                        className="mt-4 w-full md:w-auto px-8 py-3 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg"
+                        disabled={loading}
+                        className={`
+                            mt-4 w-full md:w-auto px-8 py-3 rounded-lg text-white
+                            bg-linear-to-r from-purple-600 to-pink-600
+                            ${loading ? "opacity-60 cursor-not-allowed" : "hover:scale-105"}
+                        `}
                     >
-                        Send Message
+                        {loading ? "Sending..." : "Send Message"}
                     </motion.button>
+
                 </form>
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 items-start">
                     {/* Email Info */}
