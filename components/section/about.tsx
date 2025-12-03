@@ -95,6 +95,9 @@ export default function About() {
                             title="Download Resume"
                             icon={<Download size={20} />}
                             position="left"
+                            handleClick={() => {
+                                window.open("/Htet_Ko_Oo_Resume.pdf", "_blank");
+                            }}
                         />
                         {/* Navigation: github link */}
                         <Link href={links.github} target="_blank" rel="noopener noreferrer">
