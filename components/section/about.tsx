@@ -26,7 +26,7 @@ export default function About() {
                     viewport={{ once: true }}
                     className="flex w-full lg:w-1/3 justify-center">
                     <Image
-                        src="/profile-photo.png"
+                        src="/pp.png"
                         alt="Profile Photo"
                         width={300}
                         height={300}
