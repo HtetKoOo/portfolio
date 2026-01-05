@@ -27,7 +27,7 @@ export default function About() {
           className="flex w-full lg:w-1/4 justify-center"
         >
           <Image
-            src="/pp.png"
+            src="/profile-photo.png"
             alt="Profile Photo"
             width={300}
             height={300}
