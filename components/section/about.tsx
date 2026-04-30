@@ -27,7 +27,7 @@ export default function About() {
           className="flex w-full lg:w-1/4 justify-center"
         >
           <Image
-            src="/Pp.png"
+            src="https://res.cloudinary.com/dvr8abx6u/image/upload/v1777537004/Pp_hdiy4v.png"
             alt="Profile Photo"
             width={300}
             height={300}
@@ -92,7 +92,7 @@ export default function About() {
             learning modern technologies to improve my skill. My contributions
             include developing features for a{" "}
             <span className="text-primary font-medium">
-              Utility Management System
+              Utility Management System, One Project One Month website and Blood Donation System website
             </span>{" "}
             as part of the{" "}
             <span className="text-primary font-medium">
@@ -101,7 +101,7 @@ export default function About() {
             program, where I helped build the admin dashboard. I have hands-on
             experience developing{" "}
             <span className="text-primary font-medium">
-              E-commerce, Payment, and Movie web applications
+              E-commerce, Payment, Social Media app and Movie web applications
             </span>
             .
           </motion.p>
@@ -130,7 +130,7 @@ export default function About() {
               icon={<Download size={20} />}
               position="left"
               handleClick={() => {
-                window.open("/Htet_Ko_Oo_Resume.pdf", "_blank");
+                window.open("https://res.cloudinary.com/dvr8abx6u/image/upload/v1777537173/Htet_Ko_Oo_Resume_wm7kpy.pdf", "_blank");
               }}
             />
             {/* Navigation: github link */}
