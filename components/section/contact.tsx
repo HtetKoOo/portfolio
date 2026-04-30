@@ -4,7 +4,7 @@ import { links } from "@/config/site"
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Badge } from "../ui/badge";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Copy } from "lucide-react";
 import { FaDiscord, FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FloatingDock } from "../ui/floating-dock";
 import { toast } from "sonner";
@@ -63,7 +63,7 @@ export default function Contact() {
             <motion.h2
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
+                transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
                 className="text-4xl font-bold my-10 text-center"
             >
@@ -80,7 +80,7 @@ export default function Contact() {
                         <motion.div
                             initial={{ opacity: 0, y: 60 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.2 }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
                             viewport={{ once: true }}>
                             <label className="block font-semibold mb-2">Full Name *</label>
                             <input
@@ -97,7 +97,7 @@ export default function Contact() {
                         <motion.div
                             initial={{ opacity: 0, y: 60 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.2 }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
                             viewport={{ once: true }}>
                             <label className="block font-semibold mb-2">Email Address *</label>
                             <input
@@ -116,7 +116,7 @@ export default function Contact() {
                     <motion.div
                         initial={{ opacity: 0, y: 60 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
                         viewport={{ once: true }}
                         className="mt-4">
                         <label className="block font-semibold mb-2">Subject *</label>
@@ -134,7 +134,7 @@ export default function Contact() {
                     <motion.div
                         initial={{ opacity: 0, y: 60 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.9, delay: 0.6 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
                         viewport={{ once: true }}
                         className="mt-4">
                         <label className="block font-semibold mb-2">Message *</label>
@@ -153,7 +153,7 @@ export default function Contact() {
                     <motion.button
                         initial={{ opacity: 0, y: 60 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.8 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
                         viewport={{ once: true }}
                         type="submit"
                         disabled={loading}
@@ -172,7 +172,7 @@ export default function Contact() {
                     <motion.div
                         initial={{ opacity: 0, y: 60 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.3 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
                         viewport={{ once: true }}
                         className="mt-10 lg:mt-0 flex items-center"
                     >
@@ -183,7 +183,16 @@ export default function Contact() {
                                 <p className="text-secondary-foreground">
                                     For business inquiries, collaborations, or project discussions, feel free to reach out.
                                 </p>
-                                <p className="mt-1">htetkooo2532@gmail.com</p>
+                                <div 
+                                    className="mt-1 flex items-center gap-2 group cursor-pointer w-fit"
+                                    onClick={() => {
+                                        navigator.clipboard.writeText("htetkooo2532@gmail.com");
+                                        toast.success("Email copied to clipboard!");
+                                    }}
+                                >
+                                    <p className="group-hover:text-purple-500 transition-colors">htetkooo2532@gmail.com</p>
+                                    <Copy className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-purple-500" />
+                                </div>
                             </div>
                         </div>
 
@@ -193,7 +202,7 @@ export default function Contact() {
                     <motion.div
                         initial={{ opacity: 0, y: 60 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.5 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
                         viewport={{ once: true }}
                         className="mt-10 lg:mt-0 flex items-center"
                     >
@@ -204,7 +213,16 @@ export default function Contact() {
                                 <p className="text-secondary-foreground">
                                     Available for urgent calls, client meetings, or quick follow-ups during business hours.
                                 </p>
-                                <p className="mt-1">+66 92 8548 602</p>
+                                <div 
+                                    className="mt-1 flex items-center gap-2 group cursor-pointer w-fit"
+                                    onClick={() => {
+                                        navigator.clipboard.writeText("+66 92 8548 602");
+                                        toast.success("Phone number copied to clipboard!");
+                                    }}
+                                >
+                                    <p className="group-hover:text-purple-500 transition-colors">+66 92 8548 602</p>
+                                    <Copy className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-purple-500" />
+                                </div>
                             </div>
                         </div>
                     </motion.div>
@@ -213,7 +231,7 @@ export default function Contact() {
                     <motion.div
                         initial={{ opacity: 0, y: 60 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.9, delay: 0.7 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
                         viewport={{ once: true }}
                         className="mt-8 lg:mt-0 flex items-center"
                     >
@@ -235,7 +253,7 @@ export default function Contact() {
             <motion.div
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: 0.5 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
                 viewport={{ once: true }}
             >
                 <FloatingDock desktopClassName="mt-20 mb-6" mobileClassName="mt-10 mb-2" items={[
