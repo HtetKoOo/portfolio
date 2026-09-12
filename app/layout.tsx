@@ -1,51 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { ModeToggle } from "@/components/mode-toggle";
-import { Navbar } from "@/components/navbar";
-import Footer from "@/components/Footer";
-import { Toaster } from "@/components/ui/sonner";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Htet Ko Oo's Portfolio",
-  description: "Modern & Minimalist Design",
-  icons: {
-    icon: "/Portfolio_logo.png",  // path is relative to `public`
+  title: "Htet Ko Oo | Web Developer",
+  description:
+    "Bangkok-based web developer and Digital Technology Innovation student building with React, Next.js, and Laravel.",
+  metadataBase: new URL("https://www.htetkooo.dev"),
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Htet Ko Oo | Web Developer",
+    description: "Selected web projects and team contributions.",
+    type: "website",
   },
 };
-
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          {children}
-          <Toaster />
-          <Footer />
-          <ModeToggle className="fixed bottom-6 right-6 p-2 rounded-full shadow-md bg-foreground-100" />
-        </ThemeProvider>
-      </body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }
