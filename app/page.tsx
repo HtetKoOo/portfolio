@@ -1,5 +1,11 @@
-import { selectedProjects } from "@/data/portfolio";
+import {
+  featuredProjects,
+  moreProjects,
+  type PortfolioProject,
+} from "@/data/portfolio";
 import { CopyEmail } from "@/components/copy-email";
+import Image from "next/image";
+import Link from "next/link";
 
 const email = "htetkooo2532@gmail.com";
 export default function Home() {
@@ -38,7 +44,7 @@ export default function Home() {
           </p>
           <div className="actions">
             <a className="button primary" href="#projects">
-              Explore my work <span aria-hidden="true">↗</span>
+              Explore featured work <span aria-hidden="true">↗</span>
             </a>
             <a className="button" href="https://github.com/HtetKoOo">
               GitHub
@@ -61,29 +67,28 @@ export default function Home() {
         >
           <div className="section-heading">
             <div>
-              <p className="eyebrow">SELECTED WORK</p>
-              <h2 id="projects-title">Projects & contributions</h2>
+              <p className="eyebrow">FEATURED WORK</p>
+              <h2 id="projects-title">Projects built for real workflows</h2>
             </div>
-            <p>Personal applications and work with other developers.</p>
+            <p>Three projects that best show my full-stack and frontend work.</p>
           </div>
-          <div className="project-grid">
-            {selectedProjects.map((project, i) => (
-              <article className="project" key={project.source}>
-                <div className="project-top">
-                  <span className="project-number">0{i + 1}</span>
-                  <span className="project-type">{project.role}</span>
-                </div>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <ul className="tags" aria-label="Technologies">
-                  {project.stack.map((tag) => (
-                    <li key={tag}>{tag}</li>
-                  ))}
-                </ul>
-                <a className="project-link" href={project.source}>
-                  View repository <span aria-hidden="true">↗</span>
-                </a>
-              </article>
+          <div className="project-grid featured-grid">
+            {featuredProjects.map((project, index) => (
+              <ProjectCard key={project.slug} project={project} index={index} featured />
+            ))}
+          </div>
+        </section>
+        <section className="section more-projects" aria-labelledby="more-projects-title">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">MORE TO EXPLORE</p>
+              <h2 id="more-projects-title">Additional projects</h2>
+            </div>
+            <p>Smaller case studies and applications that broaden my experience.</p>
+          </div>
+          <div className="more-project-grid">
+            {moreProjects.map((project) => (
+              <ProjectCard key={project.slug} project={project} />
             ))}
           </div>
         </section>
@@ -160,5 +165,60 @@ export default function Home() {
         <span>Built with Next.js & TypeScript</span>
       </footer>
     </>
+  );
+}
+
+function ProjectCard({
+  project,
+  index,
+  featured = false,
+}: {
+  project: PortfolioProject;
+  index?: number;
+  featured?: boolean;
+}) {
+  return (
+    <article className={`project ${featured ? "project-featured" : "project-compact"}`}>
+      {project.image ? (
+        <div className="project-image-wrap">
+          <Image
+            className="project-image"
+            src={project.image.src}
+            alt={project.image.alt}
+            width={1200}
+            height={675}
+          />
+        </div>
+      ) : null}
+      <div className="project-top">
+        {featured ? <span className="project-number">0{(index ?? 0) + 1}</span> : null}
+        <span className="project-type">
+          {featured ? "Featured project" : "Additional project"}
+        </span>
+      </div>
+      <h3>{project.title}</h3>
+      <p>{project.description}</p>
+      <p className="contribution"><strong>My work:</strong> {project.contribution}</p>
+      <ul className="tags" aria-label="Technologies">
+        {project.stack.map((tag) => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+      <div className="project-links">
+        {project.caseStudy ? (
+          <Link href={`/projects/${project.slug}`}>
+            View case study <span aria-hidden="true">→</span>
+          </Link>
+        ) : null}
+        {project.liveUrl ? (
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+            Live app <span aria-hidden="true">↗</span>
+          </a>
+        ) : null}
+        <a href={project.repository} target="_blank" rel="noopener noreferrer">
+          Repository <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
   );
 }

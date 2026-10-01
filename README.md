@@ -23,13 +23,15 @@ Stop `pnpm start` before rebuilding, then run `pnpm build` followed by `pnpm sta
 
 ## Edit content
 
-- Projects: `data/portfolio.ts` (title, description, stack, repository, role).
+- Projects: `data/portfolio.ts`. Each project is one object, so add, remove, or update a card in one place. Use `kind: "featured"` for the three primary cards and `kind: "more"` for the supporting list.
+- Case studies: add a `caseStudy` object to a featured project in `data/portfolio.ts`. That project automatically receives a `/projects/<slug>` page and a “View case study” link on its card.
+- Project images (optional): put a compressed cover image at `public/projects/<project-slug>/cover.webp`, then add `image: { src: "/projects/<project-slug>/cover.webp", alt: "..." }` to that project object. Cards intentionally have no empty image area until a real image is supplied.
 - Introduction, About, Skills, Contact: `app/page.tsx`.
 - Design and responsive breakpoints: `app/globals.css`.
 - SEO and canonical domain: `app/layout.tsx`.
-- Resume download: `public/resume.pdf`.
+- Resume: the editable source is `documents/resume/Htet-Ko-Oo-Resume.docx`; the portfolio downloads `public/resume.pdf`. The reproducible layout source is `documents/resume/build_resume.py`.
 
-Project contribution labels and the resume remain provisional from the previous copy. Confirm them and the canonical domain before publishing. No unverified live-demo links are displayed.
+Before publishing, confirm the project wording, canonical domain, and each live-demo link.
 
 ## Migration and preservation
 
