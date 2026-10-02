@@ -19,6 +19,8 @@ export interface PortfolioProject {
     technicalDecisions: { title: string; description: string }[];
     designApproach?: string;
     futureDirection?: string;
+    screenshots?: { src: string; alt: string }[];
+    previewNote?: string;
   };
 }
 
@@ -29,6 +31,7 @@ export const projects: PortfolioProject[] = [
     contribution: "Built authenticated planning workflows, drag-and-drop scheduling, recurring routines, and real-time task updates.",
     stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
     repository: "https://github.com/HtetKoOo/day-flow", liveUrl: "https://dayflow.htetkooo.dev/demo",
+    image: { src: "/projects/day-flow/day-view.png", alt: "DayFlow planner day view with tasks and routines" },
     caseStudy: {
       role: "Product design, frontend and full-stack implementation",
       contextHeading: "From a task list to a plan you can follow.",
@@ -66,6 +69,10 @@ export const projects: PortfolioProject[] = [
           description: "The interface supports desktop and mobile planning, system-aware appearance, and PWA installation for a more app-like experience.",
         },
       ],
+      screenshots: [
+        { src: "/projects/day-flow/day-view.png", alt: "DayFlow daily planner showing inbox tasks and a visual timeline" },
+        { src: "/projects/day-flow/week-view.png", alt: "DayFlow week view showing scheduled routines" },
+      ],
     },
   },
   {
@@ -74,6 +81,7 @@ export const projects: PortfolioProject[] = [
     contribution: "Implemented schedule-scoped access controls, local face-template matching, and duplicate-safe attendance recording.",
     stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
     repository: "https://github.com/HtetKoOo/Smart-Attendance-system", liveUrl: "https://kbu-smart-attendance.vercel.app",
+    image: { src: "/projects/smart-attendance/record-attendance.png", alt: "KBU Smart Attendance record attendance workflow" },
     caseStudy: {
       role: "Full-stack implementation and academic product design",
       contextHeading: "Attendance needs both clear workflows and careful boundaries.",
@@ -111,6 +119,10 @@ export const projects: PortfolioProject[] = [
           description: "PostgreSQL on Neon and Prisma enforce one attendance record per student, class schedule, and date, so repeat requests cannot silently create duplicate entries.",
         },
       ],
+      screenshots: [
+        { src: "/projects/smart-attendance/landing.png", alt: "KBU Smart Attendance public landing page" },
+        { src: "/projects/smart-attendance/record-attendance.png", alt: "KBU Smart Attendance schedule-scoped recording screen" },
+      ],
     },
   },
   {
@@ -119,6 +131,7 @@ export const projects: PortfolioProject[] = [
     contribution: "Built private couple-scoped workflows for invitations, shared memories and media, mutual-answer reveals, letters, Little Jar notes, presence, and scheduled email reminders.",
     stack: ["Next.js", "TypeScript", "Better Auth", "Drizzle", "Neon PostgreSQL", "Cloudinary", "Resend"],
     repository: "https://github.com/HtetKoOo/our-sweet-universe", liveUrl: "https://ours.htetkooo.dev/demo",
+    image: { src: "/projects/our-sweet-universe/demo-preview.png", alt: "Our Sweet Universe fictional shared-space demo" },
     caseStudy: {
       role: "Product design, full-stack implementation, and privacy-focused architecture",
       contextHeading: "Private by default, designed for a shared space of two.",
@@ -170,6 +183,10 @@ export const projects: PortfolioProject[] = [
       ],
       designApproach: "The interface is mobile-first because the primary experience is two people using their phones. Tablet and desktop layouts create more room for shared memories and navigation without changing that priority.",
       futureDirection: "Progressive Web App support and a dedicated mobile app are planned as future iterations. They are product direction, not current functionality.",
+      screenshots: [
+        { src: "/projects/our-sweet-universe/demo-preview.png", alt: "Our Sweet Universe fictional demo home screen" },
+      ],
+      previewNote: "This preview uses fictional sample content only. No private couple data is shown.",
     },
   },
   {
