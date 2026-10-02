@@ -12,10 +12,13 @@ export interface PortfolioProject {
   image?: { src: string; alt: string };
   caseStudy?: {
     role: string;
+    contextHeading: string;
     challenge: string;
     approach: string;
     highlights: { title: string; description: string }[];
     technicalDecisions: { title: string; description: string }[];
+    designApproach?: string;
+    futureDirection?: string;
   };
 }
 
@@ -28,6 +31,7 @@ export const projects: PortfolioProject[] = [
     repository: "https://github.com/HtetKoOo/day-flow", liveUrl: "https://dayflow.htetkooo.dev/demo",
     caseStudy: {
       role: "Product design, frontend and full-stack implementation",
+      contextHeading: "From a task list to a plan you can follow.",
       challenge: "Create a planner where people can quickly capture tasks, schedule them visually, and keep recurring routines visible without losing context.",
       approach: "I designed DayFlow around an Inbox and timetable: capture first, then place tasks into a day, two-day, or week view when the plan is ready.",
       highlights: [
@@ -70,13 +74,103 @@ export const projects: PortfolioProject[] = [
     contribution: "Implemented schedule-scoped access controls, local face-template matching, and duplicate-safe attendance recording.",
     stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
     repository: "https://github.com/HtetKoOo/Smart-Attendance-system", liveUrl: "https://kbu-smart-attendance.vercel.app",
+    caseStudy: {
+      role: "Full-stack implementation and academic product design",
+      contextHeading: "Attendance needs both clear workflows and careful boundaries.",
+      challenge: "Design an attendance workflow for a university setting that supports multiple roles while keeping face-recognition processing privacy-conscious and tightly scoped to each class.",
+      approach: "I built an academic prototype around role-based schedules: authorized staff choose a class, the browser checks a live face against enrolled templates locally, and the server verifies every attendance record before saving it.",
+      highlights: [
+        {
+          title: "Role-based academic workflows",
+          description: "Admin, Lecturer, and Student experiences expose only the profiles, schedules, rosters, and attendance history appropriate to each role.",
+        },
+        {
+          title: "Browser-based face recognition",
+          description: "The guided enrollment flow creates numeric face templates, while camera frames and live matching remain in browser memory instead of being uploaded as images or video.",
+        },
+        {
+          title: "Schedule-scoped attendance",
+          description: "Only Admins and the Lecturer assigned to a selected schedule can record attendance, and the server checks enrollment and ownership before accepting it.",
+        },
+        {
+          title: "History and reporting",
+          description: "Attendance history can be filtered by date, class schedule, and status, with role-scoped views and CSV-ready exports for academic review.",
+        },
+      ],
+      technicalDecisions: [
+        {
+          title: "Local template matching",
+          description: "The browser compares numeric face descriptors with protected student templates using Euclidean distance. The workflow pauses for unknown, multiple, or ambiguous matches to reduce false records.",
+        },
+        {
+          title: "Server-side authorization checks",
+          description: "Better Auth sessions and Next.js Route Handlers enforce role, schedule, lecturer ownership, and course-enrollment rules independently from the interface.",
+        },
+        {
+          title: "Duplicate-safe data model",
+          description: "PostgreSQL on Neon and Prisma enforce one attendance record per student, class schedule, and date, so repeat requests cannot silently create duplicate entries.",
+        },
+      ],
+    },
   },
   {
     slug: "our-sweet-universe", kind: "featured", title: "Our Sweet Universe",
-    description: "A privacy-focused two-person web app for shared memories, settings, and personal space.",
-    contribution: "Designed authenticated, couple-scoped data access with database migrations, input validation, and private media handling.",
-    stack: ["Next.js", "Better Auth", "Drizzle", "Neon PostgreSQL"],
-    repository: "https://github.com/HtetKoOo/our-sweet-universe",
+    description: "A mobile-first private shared-space web app for couples to keep memories, answer daily prompts, exchange letters, and revisit small moments together.",
+    contribution: "Built private couple-scoped workflows for invitations, shared memories and media, mutual-answer reveals, letters, Little Jar notes, presence, and scheduled email reminders.",
+    stack: ["Next.js", "TypeScript", "Better Auth", "Drizzle", "Neon PostgreSQL", "Cloudinary", "Resend"],
+    repository: "https://github.com/HtetKoOo/our-sweet-universe", liveUrl: "https://ours.htetkooo.dev/demo",
+    caseStudy: {
+      role: "Product design, full-stack implementation, and privacy-focused architecture",
+      contextHeading: "Private by default, designed for a shared space of two.",
+      challenge: "Build a personal shared-space app where every feature respects a two-person privacy boundary, while keeping the experience calm and comfortable on a phone.",
+      approach: "I separated a fictional public preview from authenticated private routes, then scoped private reads and writes through the signed-in member’s couple membership.",
+      highlights: [
+        {
+          title: "Private memories and media",
+          description: "Members can create, edit, and confirm deletion of memories, attach authenticated image or video assets, and revisit milestone stories, galleries, and an anniversary countdown.",
+        },
+        {
+          title: "One private partner invitation",
+          description: "The owner creates an email-bound link that expires after seven days. Its token is stored only as a hash, and acceptance atomically provisions or joins the invited partner.",
+        },
+        {
+          title: "Little Question mutual reveal",
+          description: "Each person writes privately. Both answers appear only after both have responded; a rest request requires the other person’s decision, and completed prompts remain in history.",
+        },
+        {
+          title: "Letters and Little Jar",
+          description: "Love letters have individual read receipts. Little Jar notes can be tucked away for the other person to discover later, then answered with a small reaction.",
+        },
+        {
+          title: "Quiet partner presence",
+          description: "An approximate last-active status refreshes only while someone uses the private app, avoiding exact tracking while still giving a gentle sense of presence.",
+        },
+        {
+          title: "Gentle scheduled moments",
+          description: "A scheduled worker triggers privacy-safe unanswered-question reminders and celebration emails, with database records that make retries safe.",
+        },
+      ],
+      technicalDecisions: [
+        {
+          title: "Couple-scoped authorization and invitations",
+          description: "Better Auth sessions resolve into a couple membership before private actions run. The invitation flow validates the recipient and uses one transaction to prevent an expired, reused, or concurrent invite from adding an unintended member.",
+        },
+        {
+          title: "Answers stay private until the rule allows reveal",
+          description: "Question answers are stored per member and the other answer is deliberately not serialized before both responses exist. The round state handles answering, rest requests, reveal, and rest outcomes.",
+        },
+        {
+          title: "Protected media and a safe public preview",
+          description: "Private media is delivered through authenticated app routes after membership checks. The /demo routes use fictional content only and do not read or save private couple data.",
+        },
+        {
+          title: "Reliable scheduled emails",
+          description: "A Cloudflare Worker invokes protected app jobs for reminders and celebrations. Per-member, per-event database keys prevent duplicate delivery if the scheduler retries.",
+        },
+      ],
+      designApproach: "The interface is mobile-first because the primary experience is two people using their phones. Tablet and desktop layouts create more room for shared memories and navigation without changing that priority.",
+      futureDirection: "Progressive Web App support and a dedicated mobile app are planned as future iterations. They are product direction, not current functionality.",
+    },
   },
   {
     slug: "cinemingala", kind: "more", title: "CineMingala",

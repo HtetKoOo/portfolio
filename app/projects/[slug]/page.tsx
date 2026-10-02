@@ -79,13 +79,36 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <section className="case-section case-context" aria-labelledby="challenge-title">
           <div>
             <p className="eyebrow">CONTEXT</p>
-            <h2 id="challenge-title">From a task list to a plan you can follow.</h2>
+            <h2 id="challenge-title">{caseStudy.contextHeading}</h2>
           </div>
           <div>
             <p><strong>The challenge.</strong> {caseStudy.challenge}</p>
             <p><strong>The approach.</strong> {caseStudy.approach}</p>
           </div>
         </section>
+
+        {caseStudy.designApproach || caseStudy.futureDirection ? (
+          <section className="case-section" aria-labelledby="direction-title">
+            <div className="case-section-heading">
+              <p className="eyebrow">PRODUCT DIRECTION</p>
+              <h2 id="direction-title">Designed for the way it will be used.</h2>
+            </div>
+            <div className="decision-list">
+              {caseStudy.designApproach ? (
+                <article>
+                  <h3>Design approach</h3>
+                  <p>{caseStudy.designApproach}</p>
+                </article>
+              ) : null}
+              {caseStudy.futureDirection ? (
+                <article>
+                  <h3>Future direction</h3>
+                  <p>{caseStudy.futureDirection}</p>
+                </article>
+              ) : null}
+            </div>
+          </section>
+        ) : null}
 
         <section className="case-section" aria-labelledby="features-title">
           <div className="case-section-heading">
@@ -119,13 +142,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         <section className="case-cta" aria-labelledby="case-cta-title">
-          <p className="eyebrow">EXPLORE DAYFLOW</p>
+          <p className="eyebrow">EXPLORE THE PROJECT</p>
           <h2 id="case-cta-title">See the product in action.</h2>
-          <p>The demo has a complete sample plan and resets after the visit, so it can be explored without creating an account.</p>
+          <p>
+            {project.liveUrl
+              ? "Use the public demo to explore the project workflow, then review the repository for its implementation details."
+              : "This project is presented through a fictional preview and its repository, keeping private content out of the public portfolio."}
+          </p>
           <div className="case-actions">
             {project.liveUrl ? (
               <a className="button primary" href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                 Open demo <span aria-hidden="true">↗</span>
+              </a>
+            ) : null}
+            {!project.liveUrl ? (
+              <a className="button primary" href={project.repository} target="_blank" rel="noopener noreferrer">
+                View repository <span aria-hidden="true">↗</span>
               </a>
             ) : null}
             <Link className="text-link" href="/#projects">Back to portfolio</Link>
