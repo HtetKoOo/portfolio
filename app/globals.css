@@ -335,6 +335,34 @@ button.button:hover {
 .case-section-heading {
   margin-bottom: 32px;
 }
+.case-preview-note {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 16px 0 0;
+}
+.case-screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.case-screenshot {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #eff3f7;
+}
+.case-screenshot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.case-screenshot:only-child {
+  grid-column: 1 / -1;
+}
 .case-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -526,7 +554,8 @@ button.button:hover {
   }
   .case-summary,
   .case-context,
-  .case-grid {
+  .case-grid,
+  .case-screenshot-grid {
     grid-template-columns: 1fr;
   }
   .case-summary > div + div {

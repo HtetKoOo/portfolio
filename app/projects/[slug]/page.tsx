@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/portfolio";
@@ -75,6 +76,29 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <p>{project.stack.join(" · ")}</p>
           </div>
         </section>
+
+        {caseStudy.screenshots?.length ? (
+          <section className="case-section" aria-labelledby="preview-title">
+            <div className="case-section-heading">
+              <p className="eyebrow">PRODUCT PREVIEW</p>
+              <h2 id="preview-title">A closer look at the interface.</h2>
+              {caseStudy.previewNote ? <p className="case-preview-note">{caseStudy.previewNote}</p> : null}
+            </div>
+            <div className="case-screenshot-grid">
+              {caseStudy.screenshots.map((screenshot) => (
+                <figure className="case-screenshot" key={screenshot.src}>
+                  <Image
+                    src={screenshot.src}
+                    alt={screenshot.alt}
+                    width={1470}
+                    height={829}
+                    sizes="(max-width: 700px) 100vw, 50vw"
+                  />
+                </figure>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         <section className="case-section case-context" aria-labelledby="challenge-title">
           <div>
