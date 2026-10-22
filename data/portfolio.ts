@@ -21,6 +21,7 @@ export interface PortfolioProject {
     futureDirection?: string;
     screenshots?: { src: string; alt: string }[];
     previewNote?: string;
+    walkthrough?: { url: string; label: string };
   };
 }
 
@@ -73,6 +74,10 @@ export const projects: PortfolioProject[] = [
         { src: "/projects/day-flow/day-view.png", alt: "DayFlow daily planner showing inbox tasks and a visual timeline" },
         { src: "/projects/day-flow/week-view.png", alt: "DayFlow week view showing scheduled routines" },
       ],
+      walkthrough: {
+        url: "https://youtu.be/qLLC_IBFvfo",
+        label: "Watch 1-minute walkthrough",
+      },
     },
   },
   {
@@ -126,12 +131,12 @@ export const projects: PortfolioProject[] = [
     },
   },
   {
-    slug: "our-sweet-universe", kind: "featured", title: "Our Sweet Universe",
+    slug: "our-little-universe", kind: "featured", title: "Our Little Universe",
     description: "A mobile-first private shared-space web app for couples to keep memories, answer daily prompts, exchange letters, and revisit small moments together.",
     contribution: "Built private couple-scoped workflows for invitations, shared memories and media, mutual-answer reveals, letters, Little Jar notes, presence, and scheduled email reminders.",
     stack: ["Next.js", "TypeScript", "Better Auth", "Drizzle", "Neon PostgreSQL", "Cloudinary", "Resend"],
-    repository: "https://github.com/HtetKoOo/our-sweet-universe", liveUrl: "https://ours.htetkooo.dev/demo",
-    image: { src: "/projects/our-sweet-universe/demo-preview.png", alt: "Our Sweet Universe fictional shared-space demo" },
+    repository: "https://github.com/HtetKoOo/our-little-universe", liveUrl: "https://ours.htetkooo.dev/demo",
+    image: { src: "/projects/our-little-universe/demo-preview.png", alt: "Our Little Universe fictional shared-space demo" },
     caseStudy: {
       role: "Product design, full-stack implementation, and privacy-focused architecture",
       contextHeading: "Private by default, designed for a shared space of two.",
@@ -184,9 +189,13 @@ export const projects: PortfolioProject[] = [
       designApproach: "The interface is mobile-first because the primary experience is two people using their phones. Tablet and desktop layouts create more room for shared memories and navigation without changing that priority.",
       futureDirection: "Progressive Web App support and a dedicated mobile app are planned as future iterations. They are product direction, not current functionality.",
       screenshots: [
-        { src: "/projects/our-sweet-universe/demo-preview.png", alt: "Our Sweet Universe fictional demo home screen" },
+        { src: "/projects/our-little-universe/demo-preview.png", alt: "Our Little Universe fictional demo home screen" },
       ],
       previewNote: "This preview uses fictional sample content only. No private couple data is shown.",
+      walkthrough: {
+        url: "https://youtu.be/TUQ2QmJJBRo",
+        label: "Watch 1-minute walkthrough",
+      },
     },
   },
   {
