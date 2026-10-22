@@ -363,6 +363,60 @@ button.button:hover {
 .case-screenshot:only-child {
   grid-column: 1 / -1;
 }
+.case-video-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--ink);
+}
+.case-video-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+.case-video-card:hover img {
+  opacity: 0.42;
+}
+.case-video-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  color: #fff;
+  text-align: left;
+}
+.case-video-content > span:last-child {
+  display: grid;
+  gap: 4px;
+}
+.case-video-content strong {
+  font-size: clamp(18px, 2.5vw, 26px);
+  letter-spacing: -0.03em;
+}
+.case-video-content small {
+  color: rgb(255 255 255 / 80%);
+  font-size: 12px;
+}
+.case-video-play {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  place-items: center;
+  padding-left: 2px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  font-size: 15px;
+}
 .case-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

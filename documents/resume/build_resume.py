@@ -142,7 +142,7 @@ project(doc, "KBU Smart Attendance System", "Next.js, TypeScript, Prisma, Postgr
     "Developed role-based admin, lecturer, and student workflows for attendance, schedules, courses, enrollments, and reports.",
     "Implemented browser-local face-template matching with server-side authorization, schedule and enrollment validation, and duplicate-safe attendance records.",
 ])
-project(doc, "Our Sweet Universe", "Next.js, Better Auth, Drizzle ORM, Neon PostgreSQL", [
+project(doc, "Our Little Universe", "Next.js, Better Auth, Drizzle ORM, Neon PostgreSQL", [
     "Built a privacy-focused couple app with invitation-based partner access, couple-scoped authorization, private memories and media, and responsive mobile-first UI.",
     "Implemented mutual-answer reveals, Little Jar notes, love letters, presence status, and scheduled Resend email reminders.",
 ])

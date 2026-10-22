@@ -97,6 +97,29 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </figure>
               ))}
             </div>
+            {caseStudy.walkthrough ? (
+              <a
+                className="case-video-card"
+                href={caseStudy.walkthrough.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={caseStudy.screenshots[0]!.src}
+                  alt=""
+                  width={1470}
+                  height={829}
+                  sizes="(max-width: 700px) 100vw, 1120px"
+                />
+                <span className="case-video-content">
+                  <span className="case-video-play" aria-hidden="true">▶</span>
+                  <span>
+                    <strong>{caseStudy.walkthrough.label}</strong>
+                    <small>YouTube · Opens in a new tab</small>
+                  </span>
+                </span>
+              </a>
+            ) : null}
           </section>
         ) : null}
 
